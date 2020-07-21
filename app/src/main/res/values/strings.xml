@@ -27,6 +27,15 @@
         <item>QIP</item>
     </string-array>
 
+    <string-array name="dept_array">
+        <item>AE</item>
+        <item>BB</item>
+        <item>CE</item>
+        <item>CS</item>
+        <item>CSE</item>
+        <item>CESE</item>
+    </string-array>
+
     <string-array name="add_to_calendar_options">
         <item>@string/calendar_yes</item>
         <item>@string/calendar_no</item>
@@ -55,4 +64,5 @@
     <string name="GPS_not_enables">GPS is not enabled!</string>
     <string name="no_permission">No permission!</string>
     <string name="enter_location_details">Enter Location Details</string>
+    <string name="import_timetable">Import Timetable</string>
 </resources>

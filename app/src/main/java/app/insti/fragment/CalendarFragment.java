@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -68,6 +69,7 @@ public class CalendarFragment extends BaseFragment {
     private List<Event> events = new ArrayList<>();
     private HashSet<CalendarDay> haveMonths = new HashSet<>();
     private boolean initialized = false;
+    private Button timetable_button;
 
 
     public CalendarFragment() {
@@ -82,6 +84,14 @@ public class CalendarFragment extends BaseFragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_calendar, container, false);
         fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        timetable_button = (Button) view.findViewById(R.id.timetable_button);
+        timetable_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                openTimetableDialog();
+            }
+        });
+
 
         // Setup toolbar
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
@@ -389,6 +399,12 @@ public class CalendarFragment extends BaseFragment {
         }
 
         getActivity().findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+    }
+
+    private void openTimetableDialog(){
+        TimetableDialog timetableDialog = new TimetableDialog();
+        assert getFragmentManager() != null;
+        timetableDialog.show(getFragmentManager(), "timetable dialog");
     }
 
 }

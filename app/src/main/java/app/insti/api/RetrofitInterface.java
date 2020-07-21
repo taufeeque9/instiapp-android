@@ -9,6 +9,7 @@ import app.insti.api.model.HostelMessMenu;
 import app.insti.api.model.NewsArticle;
 import app.insti.api.model.Notification;
 import app.insti.api.model.PlacementBlogPost;
+import app.insti.api.model.TimetableCourse;
 import app.insti.api.model.TrainingBlogPost;
 import app.insti.api.model.User;
 import app.insti.api.model.Venter;
@@ -25,6 +26,7 @@ import app.insti.api.response.ExploreResponse;
 import app.insti.api.response.ImageUploadResponse;
 import app.insti.api.response.LoginResponse;
 import app.insti.api.response.NewsFeedResponse;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -150,4 +152,7 @@ public interface RetrofitInterface {
 
     @GET("venter/tags")
     Call<List<Venter.TagUri>> getTags(@Header("Cookie") String sessionID);
+
+	@POST("ics")
+    Call<ResponseBody> getTimetable(@Header("Cookie") String sessionId, @Body List<TimetableCourse> timetableCourses);
 }
